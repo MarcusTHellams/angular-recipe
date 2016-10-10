@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  private switch = true;
+  onSwitch(){
+    this.switch = !this.switch;
+  }
 }
