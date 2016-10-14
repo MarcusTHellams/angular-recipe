@@ -6,16 +6,18 @@ import { Recipe } from '../../recipes';
   templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
-recipes: Recipe[] = [];
-recipe = new Recipe('Dummy', 'Dummy Description', 'https://unsplash.it/200/?random');
-@Output() recipeSelected = new EventEmitter<Recipe>();
+  recipes: Recipe[] = [
+    new Recipe('Schnitzel', 'Very Tasty', 'http://lorempixel.com/100/100/food/1', []),
+    new Recipe('Summer Salad', 'Okay Tasty', 'http://lorempixel.com/100/100/food/2', [])
+  ];
+  @Output() recipeSelected = new EventEmitter<Recipe>();
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSelected(recipe:Recipe){
-      this.recipeSelected.emit(this.recipe);
+  onSelected(recipe: Recipe) {
+    this.recipeSelected.emit(recipe);
   };
 
 }
