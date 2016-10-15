@@ -14,6 +14,8 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
 import { DropdownDirective } from './dropdown.directive';
 import { AnimateComponent } from './animate/animate.component';
 import { AppRoutingModule, /*routedComponents not needed when using Angular-cli to create your components*/ } from './app.routes';
+import { RecipeStartComponent } from './recipes/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AppRoutingModule, /*routedComponents not needed when using Angular-cli 
     ShoppingListComponent,
     ShoppingListAddComponent,
     DropdownDirective,
-    AnimateComponent
+    AnimateComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
