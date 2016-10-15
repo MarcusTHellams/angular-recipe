@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 import { DropdownDirective } from './dropdown.directive';
 import { AnimateComponent } from './animate/animate.component';
+import { AppRoutingModule, /*routedComponents not needed when using Angular-cli to create your components*/ } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AnimateComponent } from './animate/animate.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
