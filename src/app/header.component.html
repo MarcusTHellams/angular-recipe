@@ -14,13 +14,17 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" rbDropdown>
-          <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+          <a 
+          href="javascript:void(0)"
+          class="dropdown-toggle"
+           role="button" 
+           aria-haspopup="true" 
+           aria-expanded="false">
+           Recipe Managment <span class="caret"></span>
+           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Other</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="javascript:void(0)" (click)="onStore()">Store Recipes</a></li>
+            <li><a href="javascript:void(0)" (click)="onFetch()">Retrieve Recipes</a></li>
           </ul>
         </li>
       </ul>
