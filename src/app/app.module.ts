@@ -16,6 +16,7 @@ import { AnimateComponent } from './animate/animate.component';
 import { AppRoutingModule, /*routedComponents not needed when using Angular-cli to create your components*/ } from './app.routes';
 import { RecipeStartComponent } from './recipes/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { CollapseDirective } from './directives/collapse.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     DropdownDirective,
     AnimateComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    CollapseDirective
   ],
   imports: [
     BrowserModule,

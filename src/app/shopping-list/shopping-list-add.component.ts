@@ -14,6 +14,7 @@ export class ShoppingListAddComponent implements OnChanges {
   constructor(private sls: ShoppingListService) { }
 
   ngOnChanges(changes) {
+    console.log(changes);
     if (changes.item.currentValue === null) {
       this.isAdd = true;
       this.item = { name: null, amount: null }
