@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe';
-import { Subscription } from 'rxjs/Rx';
+import { Subscription, Observable, Observer } from 'rxjs/Rx';
 import { FormArray, FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -17,6 +17,28 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
   private recipe: Recipe;
   private recipeIndex: number;
   private isNew = true;
+  public opts = [
+    {
+      name: 'One',
+      value: 1
+    },
+    {
+      name: 'Two',
+      value: 2
+    },
+    {
+      name: 'Three',
+      value: 3
+    },
+    {
+      name: 'Four',
+      value: 4
+    },
+    {
+      name: 'Five',
+      value: 5
+    }
+  ];
   constructor(private route: ActivatedRoute,
     private recipeService: RecipeService,
     private formBuilder: FormBuilder,
@@ -49,7 +71,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     this.navigateBack();
   }
 
-  onAddItem(name:HTMLInputElement, amount:HTMLInputElement) {
+  onAddItem(name: HTMLInputElement, amount: HTMLInputElement) {
     (<FormArray>this.recipeForm.controls['ingredients']).push(
       new FormGroup({
         name: new FormControl(name.value, Validators.required),
@@ -102,7 +124,37 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
       name: [recipeName, Validators.required],
       imagePath: [recipeImageUrl, Validators.required],
       description: [recipeContent, Validators.required],
-      ingredients: recipeIngredients
+      ingredients: recipeIngredients,
+      options: ['', Validators.required]
     });
+
+    let jam = Observable.create((observer: Observer<any>) => {
+      setTimeout(() => {
+        observer.next(42);
+      }, 1500);
+
+      setTimeout(() => {
+        observer.error('Big Bad Error');
+      }, 2000);
+
+      setTimeout(() => {
+        observer.complete
+      }, 3000);
+    });
+
+
+    jam.subscribe(
+      (k) => console.log(k),
+      (k) => console.log(k),
+      (k) => console.log('Completed')
+    );
+
+    this.recipeForm.controls['options'].valueChanges
+     /* .debounce(() => Observable.timer(500))
+      .map((text) => text.trim())
+      .distinctUntilChanged()*/
+      .subscribe((text) => {
+        console.log(text);
+      });
   }
 }
